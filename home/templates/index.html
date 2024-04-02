@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{%block start%}
+    <body>
+        <h1>ATTACK ON TITAN</h1>
+        <p>{{text|lower}}</p>
+
+            <h1>Best Series in the world</h1>
+
+            <table>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Series Name</th>
+                  <th>Ratings</th>
+                  <th>Recommended</th>
+                </tr>
+                <tr>
+                    {% for i in series %}
+                  <td>{{forloop.counter}}</td>
+                  <td>{{i.name}}</td>
+                  <td>{{i.Ratings}}</td>
+                  <td>
+                    {% if i.Ratings >= 9.0 %}
+                    👍
+                    {% else %}
+                    👎
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </table>
+              <br>
+              <br>
+              <br>
+
+              
+            {{series}}        
+    </body>
+    
+{%endblock%}
